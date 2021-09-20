@@ -17,5 +17,9 @@ pipeline {
         bat 'mvn test'
       }
     }
+      stage('SonarQube Analysis') {
+    def mvn = tool 'Default Maven';
+    withSonarQubeEnv() {
+      sh "${mvn}/bin/mvn sonar:sonar"
   }
 }
