@@ -17,5 +17,8 @@ pipeline {
         bat 'mvn test'
       }
     }
+    stage('SonarQube Analysis') {
+      steps {
+      sh "${mvn}/bin/mvn sonar:sonar"
   }
 }
