@@ -3,8 +3,8 @@ node {
     checkout scm
   }
   stage('SonarQube Analysis') {
-    def mvn = tool 'Default Maven';
-    withSonarQubeEnv(SonarQubeProject) {
+    def mvn = tool 'Maven3';
+    withSonarQubeEnv() {
       sh "${mvn}/bin/mvn sonar:sonar"
     }
   }
